@@ -1,0 +1,38 @@
+script "IRP_Decorate" (int choice)
+{
+    int result;
+
+    switch (choice)
+    {
+      case 0:
+        result = GetCVar("irp_sv_permarunes");
+        break;
+
+      case 1:
+        bool holdablerunes = GetCVar("irp_sv_holdablerunes");
+
+        bool eligibleholders = CheckInventory("CorvusClass"); // Samsara
+
+        bool canholdrunes = (holdablerunes == 1 && eligibleholders) || holdablerunes >= 2;
+
+        result = canholdrunes;
+        break;
+    }
+
+    SetResultValue(result);
+}
+
+script "IRP_HoldableLimitCheck" (int rune)
+{
+    str runetocheck = IRP_Runes[rune][1];
+    int runeholdlimit = GetCVar("irp_sv_holdableruneslimit");
+
+    if (GetCVar("irp_sv_permarunes")) { runeholdlimit = 1; }
+    else if (runeholdlimit <= 0) { runeholdlimit = 0x7FFFFFFF; }
+
+    SetResultValue(CheckInventory(runetocheck) >= runeholdlimit);
+}
+
+// mod compatibility note: token checks are done through ACS instead of DECORATE so the console doesn't whine
+
+script "IRP_CompatCheck_SamsaraHeretic" (void) { SetResultValue(CheckInventory("CorvusClass")); }

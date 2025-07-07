@@ -1,0 +1,14 @@
+/* U.S. English. (Sorry, it's not vappy English.) */
+
+[enu default]
+
+IRP_TAG_STRENGTH = "Strength Rune";
+IRP_TAG_RAGE = "Rage Rune";
+IRP_TAG_DRAIN = "Drain Rune";
+IRP_TAG_SPREAD = "Spread Rune";
+IRP_TAG_RESISTANCE = "Resistance Rune";
+IRP_TAG_REGENERATION = "Regeneration Rune";
+IRP_TAG_PROSPERITY = "Prosperity Rune";
+IRP_TAG_REFLECTION = "Reflection Rune";
+IRP_TAG_HIGHJUMP = "High Jump Rune";
+IRP_TAG_HASTE = "Haste Rune";

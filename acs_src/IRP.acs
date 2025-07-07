@@ -1,0 +1,74 @@
+#library "IRP"
+#include "zcommon.acs"
+
+#include "IRP_Defs.acs"
+#include "IRP_Checks.acs"
+
+script "IRP_ClearHoldableRunes" ENTER
+{
+    while (true)
+    {
+        if (!ACS_NamedExecuteWithResult("IRP_Decorate", 1))
+        {
+            for (int rune = 0; rune < MAXRUNES; rune++) { TakeInventory(IRP_Runes[rune][1], 0x7FFFFFFF); }
+        }
+
+        Delay(1);
+    }
+}
+
+script "IRP_PickupMessages" (int rune) CLIENTSIDE
+{
+    int pln = PlayerNumber(); // ensure only the activator gets the messages
+    int cpln = ConsolePlayerNumber();
+
+    if (pln != cpln || GetCVar("msg") >= 1) { terminate; }
+
+    str runemsg = IRP_Runes[rune][2];
+
+    str msgcolor = "\cl";
+
+    switch (GetCVar("msg0color"))
+    {
+      default: msgcolor = "\ca"; break;
+      case 1: msgcolor = "\cb"; break;
+      case 2: msgcolor = "\cc"; break;
+      case 3: msgcolor = "\cd"; break;
+      case 4: msgcolor = "\ce"; break;
+      case 5: msgcolor = "\cf"; break;
+      case 6: msgcolor = "\cg"; break;
+      case 7: msgcolor = "\ch"; break;
+      case 8: msgcolor = "\ci"; break;
+      case 9: msgcolor = "\cj"; break;
+      case 10: msgcolor = "\ck"; break;
+      case 11: msgcolor = "\cl"; break;
+      case 12: msgcolor = "\cm"; break;
+      case 13: msgcolor = "\cn"; break;
+      case 14: msgcolor = "\co"; break;
+      case 15: msgcolor = "\cp"; break;
+      case 16: msgcolor = "\cq"; break;
+      case 17: msgcolor = "\cr"; break;
+      case 18: msgcolor = "\cs"; break;
+      case 19: msgcolor = "\ct"; break;
+      case 20: msgcolor = "\cu"; break;
+      case 21: msgcolor = "\cv"; break;
+      case 22: msgcolor = "\cw"; break;
+      case 23: msgcolor = "\cx"; break;
+      case 24: msgcolor = "\cy"; break;
+      case 25: msgcolor = "\cz"; break;
+    }
+
+    Log(s:msgcolor, l:runemsg, s:"\c-");
+}
+
+script "IRP_AnnouncerSounds" (int rune) CLIENTSIDE
+{
+    int pln = PlayerNumber(); // ensure only the activator gets the sounds
+    int cpln = ConsolePlayerNumber();
+
+    if (pln != cpln) { terminate; } // zandronum-exclusive mod, no zdoom check here
+
+    str annsound = IRP_Runes[rune][3];
+
+    AnnouncerSound(annsound, 0);
+}

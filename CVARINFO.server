@@ -1,0 +1,3 @@
+server bool irp_sv_permarunes = true; // if true, runes stay on pickup/use
+server int irp_sv_holdablerunes = 1; // if 1, only certain classes (such as Corvus in Samsara) can store runes in inventory. if 2, everyone can
+server int irp_sv_holdableruneslimit = 25; // 16 for Heretic and Samsara (Corvus), 25 for every other IWAD. 0 means no limit. always 1 if permarunes is true

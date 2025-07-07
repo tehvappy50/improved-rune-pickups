@@ -1,0 +1,15 @@
+#define MAXRUNES 10
+
+str IRP_Runes[MAXRUNES][4] =
+{
+    {"IRP_StrengthRune",     "IRP_StrengthRuneHoldable",     "PICKUP_STRENGTH",     "strength"},
+    {"IRP_RageRune",         "IRP_RageRuneHoldable",         "PICKUP_RAGE",         "rage"},
+    {"IRP_DrainRune",        "IRP_DrainRuneHoldable",        "PICKUP_DRAIN",        "drain"},
+    {"IRP_SpreadRune",       "IRP_SpreadRuneHoldable",       "PICKUP_SPREAD",       "spread"},
+    {"IRP_ResistanceRune",   "IRP_ResistanceRuneHoldable",   "PICKUP_RESISTANCE",   "resistance"},
+    {"IRP_RegenerationRune", "IRP_RegenerationRuneHoldable", "PICKUP_REGENERATION", "regeneration"},
+    {"IRP_ProsperityRune",   "IRP_ProsperityRuneHoldable",   "PICKUP_PROSPERITY",   "prosperity"},
+    {"IRP_ReflectionRune",   "IRP_ReflectionRuneHoldable",   "PICKUP_REFLECTION",   "reflection"},
+    {"IRP_HighJumpRune",     "IRP_HighJumpRuneHoldable",     "PICKUP_HIGHJUMP",     "highjump"},
+    {"IRP_HasteRune",        "IRP_HasteRuneHoldable",        "PICKUP_HASTE",        "haste"},
+};
